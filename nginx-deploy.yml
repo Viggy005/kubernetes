@@ -1,0 +1,34 @@
+# k8 works with API version to declare the resources
+# we have to declare the apiversion and the kind of service/compnents
+# service: deployment, service, pods (like ec2), replicasets, cronjobs, autoscalinggroups, horizonal pod scaling group (HPA)
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-viggy # naming the deployment(name in cluster)
+
+spec:
+  selector:
+    matchLabels:
+      app: nginx # look for this label to match with k8 service
+
+  # lets create a replica set of this with 2 instances/pods
+  replicas: 2
+
+  # template to use its label for k8 service to launch 
+  template:
+    metadata:
+      labels:
+        app: nginx # this label connects to the service
+
+
+    # lets define the container spec
+    spec:
+      containers:
+      - name: nginx
+        image: viggy005/my-nginx:v4
+        ports:
+        - containerPort: 80
+
+
+# create a k8 nginx-service.yml to cerate a k8 service(not able to see on local host uptill this stage)
