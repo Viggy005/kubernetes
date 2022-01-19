@@ -31,3 +31,4 @@
 # delete a pod and see new one spin up
 -   kubectl get pods
 -   kubectl delete pod nginx-deployment-viggy-6574d96dfd-ldqbq     (get the name from previous command)
+- once deleted a new pod spins very quickly and also the loss of one pod does nto affect the users view of the webpage on localhost
