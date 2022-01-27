@@ -35,3 +35,4 @@
 
 # migrate to cloud:
 - publicip:30442  (see nginx-service.yml file)
+# eng99_k8
